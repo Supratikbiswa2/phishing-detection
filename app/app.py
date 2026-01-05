@@ -6,7 +6,8 @@ import os
 
 # Path setup
 sys.path.append(os.path.abspath("../features"))
-from feature_extractor import extract_features
+from features.feature_extractor import extract_features
+
 
 # Load model & scaler
 model = joblib.load("../model/phishing_model.pkl")
