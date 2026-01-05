@@ -1,18 +1,22 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import joblib
 import sys
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "features")))
+# Base directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Feature extractor
+sys.path.append(os.path.join(BASE_DIR, "features"))
 from feature_extractor import extract_features
 
+# Load model and scaler
+model = joblib.load(os.path.join(BASE_DIR, "model", "phishing_model.pkl"))
+scaler = joblib.load(os.path.join(BASE_DIR, "model", "scaler.pkl"))
 
 
-# Load model & scaler
-model = joblib.load("../model/phishing_model.pkl")
-scaler = joblib.load("../model/scaler.pkl")
 
 LABEL_MAP = {
     0: "Legitimate",
