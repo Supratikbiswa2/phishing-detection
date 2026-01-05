@@ -4,9 +4,10 @@ import joblib
 import sys
 import os
 
-# Path setup
-sys.path.append(os.path.abspath("../features"))
-from features.feature_extractor import extract_features
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "features")))
+
+from feature_extractor import extract_features
+
 
 
 # Load model & scaler
